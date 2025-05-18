@@ -78,6 +78,44 @@ app.get('/api/Products/top-cheap', (req, res) => {
     });
 });
 
+// Ruta para obtener porductos mas vendidos
+app.get('/api/Products/best-sellers', (req, res) => {
+    db.all(`SELECT p.ProductName, SUM(od.Quantity) AS TotalSold
+            FROM OrderDetails od
+            JOIN Products p ON od.ProductID = p.ProductID
+            GROUP BY od.ProductID
+            ORDER BY TotalSold DESC
+            LIMIT 10`, [], (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+            return;
+        }
+        res.json({
+            message: 'success',
+            data: rows
+        });
+    });
+});
+
+// Ruta para obtener porductos menos baratos
+app.get('/api/Products/less-sold', (req, res) => {
+    db.all(`SELECT p.ProductName, SUM(od.Quantity) AS TotalSold
+            FROM OrderDetails od
+            JOIN Products p ON od.ProductID = p.ProductID
+            GROUP BY od.ProductID
+            ORDER BY TotalSold ASC
+            LIMIT 10`, [], (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+            return;
+        }
+        res.json({
+            message: 'success',
+            data: rows
+        });
+    });
+});
+
 
 // Puerto
 app.listen(3000, () => {

@@ -6,14 +6,14 @@ import MainContent from './organisms/MainContent'
 function Layaut() {
   return (
     <>
-        <div className='sticky top-0 z-10 bg-white'>
+        <div className='sticky top-0 z-20 bg-white'>
             <Navbar />
         </div>
         <div className='flex'>
-            <div className='w-[20%] bg-white h-screen border-r-2 border-gray-100'>
+            <div className='w-[20%] bg-white h-full border-r-2 border-gray-100'>
                 <Sidebar />
             </div>
-            <div className='w-[80%] bg-white h-auto'>
+            <div className='w-[80%] bg-white h-full'>
                 <MainContent />
             </div>
             

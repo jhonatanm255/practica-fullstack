@@ -12,7 +12,7 @@ import Supplyers from '../pages/SupplyerPage'
 
 function MainContent() {
   return (
-    <div className='p-4 bg-gray-100'>
+    <div className='p-4'>
       <Routes>
         <Route path="customer" element={<Customer />} />
         <Route path="employees" element={<Employees />} />

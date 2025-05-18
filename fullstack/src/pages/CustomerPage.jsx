@@ -24,7 +24,7 @@ function CustomerPage() {
       <div className="overflow-x-auto pb-3">
         <div className="max-h-[400px] overflow-y-auto border bg-white border-gray-300 rounded-lg">
           <table className="table-auto w-full">
-            <thead className="bg-gray-200 sticky -top-0.5 z-10">
+            <thead className="sticky -top-0.5 z-10">
               <tr>
                 <th className="p-4 border text-left bg-blue-300">Nombre</th>
                 <th className="p-4 border text-left bg-blue-300">Dirección</th>
